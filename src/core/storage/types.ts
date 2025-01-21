@@ -1,0 +1,1 @@
+export const PREFERRED_CARDS = 'PREFERRED_CARDS';
