@@ -4,6 +4,7 @@ import HomePage from '../pages/home/home.page';
 import DetailsPage from '../pages/details/details.page';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
+import SavedPage from '../pages/saved/saved.page';
 
 const Tab = createBottomTabNavigator<TabParams>();
 
@@ -18,7 +19,7 @@ export default function TabNavigator() {
           if (route.name === Page.Home) {
             iconName = focused ? 'home' : 'home-outline';
           } else {
-            iconName = focused ? 'list' : 'list-outline';
+            iconName = focused ? 'star' : 'star-outline';
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -28,8 +29,8 @@ export default function TabNavigator() {
       })}>
       <Tab.Screen name={Page.Home} component={HomePage} />
       <Tab.Screen
-        name={Page.Details}
-        component={DetailsPage}
+        name={Page.Saved}
+        component={SavedPage}
         initialParams={{ item: '' }}
       />
     </Tab.Navigator>

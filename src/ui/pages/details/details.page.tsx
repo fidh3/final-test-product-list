@@ -14,23 +14,7 @@ interface Props {
 const DetailsPage = ({ navigation, route }: Props) => {
   const { item } = route.params;
 
-  return (
-    <View style={homeStyle.container}>
-      <TouchableOpacity
-        onPress={() => navigation.goBack()}
-        style={{
-          position: 'absolute',
-          left: 20,
-          top: 20,
-          padding: 10,
-        }}
-      >
-        <Ionicons name="arrow-back" size={24} color="black" />
-      </TouchableOpacity>
-      <Text>Schermata Dettagli</Text>
-      <Text>Parametro ricevuto: {item}</Text>
-    </View>
-  );
+  
 };
 
 export default DetailsPage;
