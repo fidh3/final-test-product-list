@@ -1,7 +1,5 @@
-
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { View, Text, Image } from 'react-native';
 import DetailAtomStyle from './detail.atom.style';
 
 interface DetailAtom {
@@ -18,32 +16,19 @@ interface DetailAtom {
 interface DetailAtomProps {
     product: DetailAtom;
     selected: boolean;
-    onAddSaved: () => void;
 }
 
-const DetailAtom = ({ product, selected = false, onAddSaved }: DetailAtomProps) => {
+const DetailAtom = ({ product }: DetailAtomProps) => {
     return (
         <View style={DetailAtomStyle.container}>
             <View style={DetailAtomStyle.headerRow}>
-                <Text style={DetailAtomStyle.titleStyle}>
-                    {product.title}
-                </Text>
-                <TouchableOpacity 
-                    onPress={onAddSaved}
-                    style={DetailAtomStyle.iconButton}
-                >
-                    <Ionicons
-                        name={selected ? 'star-sharp' : 'star-outline'}
-                        size={25}
-                        color={'#ffd700'}
-                        style={DetailAtomStyle.favouriteIcon}
-                    />
-                </TouchableOpacity>
+                <Text style={DetailAtomStyle.titleStyle}>{product.title}</Text>
             </View>
+
             <View style={DetailAtomStyle.containerImage}>
                 <Image
                     source={{
-                        uri: product.image
+                        uri: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
                     }}
                     style={DetailAtomStyle.imageStyle}
                 />
@@ -52,9 +37,22 @@ const DetailAtom = ({ product, selected = false, onAddSaved }: DetailAtomProps) 
                 <Text style={DetailAtomStyle.descriptionText}>{product.description}</Text>
             </View>
             <View style={DetailAtomStyle.textContainer}>
-                <Text style={DetailAtomStyle.genericCardText}>Rating: {product.rate}</Text>
-                <Text style={[DetailAtomStyle.genericCardText, DetailAtomStyle.genericCardTextSpacing]}>
-                    Price: {product.price} $
+                <Text style={DetailAtomStyle.genericCardText}>Price: ${product.price}</Text>
+                <Text
+                    style={[
+                        DetailAtomStyle.genericCardText,
+                        DetailAtomStyle.genericCardTextSpacing,
+                    ]}
+                >
+                    Category: {product.category}
+                </Text>
+                <Text
+                    style={[
+                        DetailAtomStyle.genericCardText,
+                        DetailAtomStyle.genericCardTextSpacing,
+                    ]}
+                >
+                    Rating: {product.rate}/5 ({product.count} reviews)
                 </Text>
             </View>
         </View>
