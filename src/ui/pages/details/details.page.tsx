@@ -5,16 +5,22 @@ import { RouteProp } from '@react-navigation/native';
 import { homeStyle } from '../home/home.style';
 import { MainParamList, Page } from '../../navigation/types';
 import { Ionicons } from '@expo/vector-icons';
+import detailStyle from './details.style';
 
-interface Props {
-  navigation: NativeStackNavigationProp<MainParamList>;
-  route: RouteProp<MainParamList, Page.Details>;
-}
+const DetailsPage = ({ route }: any) => {
+  const { card } = route.params; // Recupera i dati della card
 
-const DetailsPage = ({ navigation, route }: Props) => {
-  const { item } = route.params;
-
-  
+  return (
+    <View style={detailStyle.container}>
+      <Text style={detailStyle.title}>{card.title}</Text>
+      <Text>Rating: {card.rate}</Text>
+      <Text>Price: {card.price} $</Text>
+      <Text>Description: {card.description}</Text>
+    </View>
+  );
 };
+
+
+
 
 export default DetailsPage;
