@@ -10,9 +10,11 @@ interface ProductCard {
     id: number;
     title: string;
     price: number;
+    description: string;
     category: string;
     image: string
     rate: number;
+    count: number;
 }
 interface CardProps {
   card: ProductCard; // Oggetto con i dettagli della card
@@ -21,27 +23,34 @@ interface CardProps {
   onAddSaved: () => void; // Funzione per aggiungere/rimuovere dai preferiti
 }
 
-const Card = ({ card, onPress, selected, onAddSaved }: CardProps) => {
-  const navigation = useNavigation(); // Hook per la navigazione
-
+const Card = ({ card, onPress, selected = false, onAddSaved }: CardProps) => {
   return (
-    <TouchableOpacity
-     onPress={() => navigation.navigate('DetailsPage', { card })} // Naviga alla schermata di dettaglio
-    >
-      <View style={cardStyle.container}>
-        <Text style={cardStyle.titleStyle}>{card.title}</Text>
-        <Ionicons
+    <TouchableOpacity onPress={onPress} style={cardStyle.container}>
+      <View style={cardStyle.headerRow}>
+        <Text style={cardStyle.titleStyle} numberOfLines={3}>
+          {card.title}
+        </Text>
+        <TouchableOpacity 
           onPress={onAddSaved}
-          name={selected ? 'star-sharp' : 'star-outline'}
-          size={28}
-          color={'#ffd700'}
-        />
+          style={cardStyle.iconButton}
+        >
+          <Ionicons
+            name={selected ? 'star-sharp' : 'star-outline'}
+            size={25}
+            color={'#ffd700'}
+            style={cardStyle.favouriteIcon}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={cardStyle.containerImage}>
         <Image
           source={{
-            uri: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+            uri: card.image
           }}
           style={cardStyle.imageStyle}
         />
+      </View>
+      <View style={cardStyle.textContainer}>
         <Text style={cardStyle.genericCardText}>Rating: {card.rate}</Text>
         <Text style={[cardStyle.genericCardText, cardStyle.genericCardTextSpacing]}>
           Price: {card.price} $
@@ -49,6 +58,5 @@ const Card = ({ card, onPress, selected, onAddSaved }: CardProps) => {
       </View>
     </TouchableOpacity>
   );
-};
-
+ };
 export default memo(Card);

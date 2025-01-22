@@ -1,42 +1,57 @@
 import { StyleSheet } from 'react-native';
 
-
 const cardStyle = StyleSheet.create({
- container:{
+  container: {
     backgroundColor: '#FFFFFF',
     borderRadius: 8,
     width: 242,
     padding: 10,
- },
-
- titleStyle: {
-    textAlign: 'left',
-    fontWeight: '400',
-    fontSize: 20,
-    color: '#151515'
- },
-
- containerImage: {
-    alignItems: 'flex-end',
   },
-  imageStyle: {
-    width: 183,
-    height: 225,
-    borderRadius: 8
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: 10,
+  },
+  titleStyle: {
+    flex: 1,
+    textAlign: 'left',
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: '#151515',
+    marginRight: 10,
+  },
+  containerImage: {
+    alignItems: 'center',  
+    width: '100%',        
+},
+imageStyle: {
+  width: 170,
+  height: 205,
+  alignSelf: 'center'  
+},
+  textContainer: {
+    width: '100%',
+    marginTop: 5,
+    borderRadius: 5,
+    backgroundColor: '#c9c9c9'
   },
   genericCardTextSpacing: {
     marginTop: 8,
   },
   genericCardText: {
     fontSize: 16,
-    color: 'white',
+    color: 'black',
   },
-
   favouriteIcon: {
-    width:25,
-    height: 25,
+    width: 20,
+    height: 20,
+  },
+  iconButton: {
+    padding: 5,
+    alignSelf: 'flex-start',
   }
-
-})
+});
 
 export default cardStyle;
