@@ -6,13 +6,6 @@ import Card from "../../components/card/card.atom";
 import { homeStyle } from "./home.style";
 
 
-interface Response {
-  cards: ProductCard[];
-  total: number;
-  skip: number;
-  limit: number;
-}
-
 interface ProductCard {
 
     id: number;
@@ -76,5 +69,5 @@ const HomePage = ({navigation}: Props) => {
     </View>
   );
 };
-export default HomePage;
+export default memo(HomePage);
   

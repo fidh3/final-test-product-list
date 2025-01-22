@@ -27,8 +27,7 @@ interface Props {
         >
           <Ionicons name="arrow-back" size={24} color="black" />
         </TouchableOpacity>
-        <Text>Schermata Salvati</Text>
-        <Text>Parametro ricevuto: {item}</Text>
+      
       </View>
     );
   };

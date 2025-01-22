@@ -1,7 +1,6 @@
 import React from "react";
 import { Page, TabParams } from "./types";
 import HomePage from "../pages/home/home.page";
-import DetailsPage from "../pages/details/details.page";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import SavedPage from "../pages/saved/saved.page";
