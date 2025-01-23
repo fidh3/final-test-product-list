@@ -12,6 +12,9 @@ export default function TabNavigator() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: true,
+        headerStyle: {
+          backgroundColor: '#b05d2e', // Colore di sfondo dell'header
+        },
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -23,9 +26,20 @@ export default function TabNavigator() {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "purple",
+        tabBarActiveTintColor: "#deff05",
         tabBarInactiveTintColor: "gray",
+        tabBarStyle: {
+          backgroundColor: "#545453", 
+          borderTopWidth: 1,
+          height: 60, 
+          paddingTop: 5, 
+        },
+        tabBarLabelStyle: {
+          fontSize: 12, // Dimensione del testo
+          fontWeight: "bold", // Grassetto per il testo
+        },
       })}
+  
     >
       <Tab.Screen name={Page.Home} component={HomePage} />
       <Tab.Screen

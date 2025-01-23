@@ -14,7 +14,7 @@ const detailAtomStyle = StyleSheet.create({
     },
     titleStyle: {
         flex: 1,
-        textAlign: 'left',
+        textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 24,
         color: '#151515',
@@ -24,11 +24,14 @@ const detailAtomStyle = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         marginBottom: 20,
+        borderTopWidth: 2,
+        borderBottomWidth: 2,
     },
     imageStyle: {
         width: '100%',
         height: 400,
         resizeMode: 'contain',
+        margin: 10
     },
     descriptionContainer: {
         padding: 16,
@@ -54,17 +57,11 @@ const detailAtomStyle = StyleSheet.create({
     genericCardText: {
         fontSize: 15,
         color: 'black',
+        fontWeight: 'bold',
         alignSelf:'flex-end'
         
 
     },
-    favouriteIcon: {
-        width: 25,
-        height: 25,
-    },
-    iconButton: {
-        padding: 5,
-    }
 });
 
 export default detailAtomStyle;

@@ -44,7 +44,7 @@ const DetailAtom = ({ product }: DetailAtomProps) => {
                         DetailAtomStyle.genericCardTextSpacing,
                     ]}
                 >
-                    Rating: {product.rate} ({product.count} reviews)
+                    Rating: {product.rating.rate} ({product.rating.count} reviews)
                 </Text>
             </View>
         </View>

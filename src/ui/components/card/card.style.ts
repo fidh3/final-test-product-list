@@ -3,16 +3,26 @@ import { StyleSheet } from 'react-native';
 const cardStyle = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 8,
+    borderRadius: 10,
     width: 242,
-    padding: 10,
+    borderWidth: 2,
+    borderColor: 'black',
+    shadowColor: '#000', 
+    shadowOffset: { width: 2, height: 2 }, 
+    shadowRadius: 3, 
+    elevation: 5, 
   },
   headerRow: {
+    paddingBottom: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor:'#b05d2e',
     width: '100%',
+    paddingVertical: 15,
     marginBottom: 10,
+    borderTopEndRadius: 8,
+    borderTopStartRadius: 8
   },
   titleStyle: {
     flex: 1,
@@ -20,7 +30,7 @@ const cardStyle = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
     color: '#151515',
-    marginRight: 10,
+    marginLeft: 10,
   },
   containerImage: {
     alignItems: 'center',  
@@ -36,18 +46,20 @@ imageStyle: {
     width: '100%',
     marginTop: 5,
     borderRadius: 5,
-    backgroundColor: '#c9c9c9'
+    backgroundColor: '#de892f'
   },
   genericCardTextSpacing: {
-    marginTop: 8,
+    marginTop: 5,
   },
   genericCardText: {
     fontSize: 16,
+    marginBottom: 5,
     color: 'black',
   },
   favouriteIcon: {
     width: 20,
     height: 20,
+    marginRight: 5
   },
   iconButton: {
     padding: 5,

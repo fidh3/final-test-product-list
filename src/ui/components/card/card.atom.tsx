@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 import cardStyle from './card.style';
 import { ProductCard } from '../../pages/hook/useCards';
 
@@ -43,6 +42,7 @@ const Card = ({ card, onPress, selected = false, onAddSaved }: CardProps) => {
       </View>
       <View style={cardStyle.textContainer}>
         <Text style={cardStyle.genericCardText}>Rating: {card.rating.rate}</Text>
+        <Text style={cardStyle.genericCardText}>Reviews: {card.rating.count}</Text>
         <Text style={[cardStyle.genericCardText, cardStyle.genericCardTextSpacing]}>
           Price: {card.price} $
         </Text>
