@@ -35,22 +35,28 @@ const detailAtomStyle = StyleSheet.create({
         marginBottom: 20,
     },
     descriptionText: {
-        fontSize: 16,
-        lineHeight: 24,
+        fontSize: 20,
+        lineHeight: 20,
+        fontWeight: 'medium',
         color: '#333',
     },
     textContainer: {
         width: '100%',
         padding: 16,
         borderRadius: 8,
-        backgroundColor: '#c9c9c9',
+        
+        
     },
     genericCardTextSpacing: {
         marginTop: 8,
+        
     },
     genericCardText: {
-        fontSize: 18,
+        fontSize: 15,
         color: 'black',
+        alignSelf:'flex-end'
+        
+
     },
     favouriteIcon: {
         width: 25,

@@ -29,7 +29,8 @@ const cardStyle = StyleSheet.create({
 imageStyle: {
   width: 170,
   height: 205,
-  alignSelf: 'center'  
+  alignSelf: 'center',
+  resizeMode: 'contain'  
 },
   textContainer: {
     width: '100%',

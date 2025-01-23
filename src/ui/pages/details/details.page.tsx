@@ -7,18 +7,9 @@ import { MainParamList, Page } from "../../navigation/types";
 import { detailStyle } from "./details.style";
 import { Ionicons } from '@expo/vector-icons';
 import DetailAtom from "../../components/detailComponent/detail.atom";
+import { ProductCard } from "../hook/useCards";
 
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rate: number;
-  count: number;
-}
 
 interface Props {
   navigation: NativeStackNavigationProp<MainParamList, Page.Details>;
@@ -28,11 +19,11 @@ interface Props {
 const DetailsPage = ({ navigation, route }: Props) => {
   const { top, bottom } = useSafeAreaInsets();
   const { id } = route.params;
-  const [product, setProduct] = useState<Product | null>(null);
+  const [product, setProduct] = useState<ProductCard | null>(null);
   const [selected, setSelected] = useState(false);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/1" + id)
+    fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then(setProduct);
   }, [id]);
@@ -42,19 +33,16 @@ const DetailsPage = ({ navigation, route }: Props) => {
     []
   );
 
-  const handleAddSaved = useCallback(() => {
-    setSelected(prev => !prev);
-  }, []);
 
-  const renderDetailItem = useCallback<ListRenderItem<Product>>(
+
+  const renderDetailItem = useCallback<ListRenderItem<ProductCard>>(
     ({ item }) => (
       <DetailAtom 
         product={item}
         selected={selected}
-      
       />
     ),
-    [selected, handleAddSaved]
+    [selected]
   );
 
   return (

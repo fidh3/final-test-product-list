@@ -1,21 +1,13 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import DetailAtomStyle from './detail.atom.style';
+import { ProductCard } from '../../pages/hook/useCards';
 
-interface DetailAtom {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-    rate: number;
-    count: number;
-}
+
 
 interface DetailAtomProps {
-    product: DetailAtom;
-    selected: boolean;
+    product: ProductCard;
+    
 }
 
 const DetailAtom = ({ product }: DetailAtomProps) => {
@@ -28,7 +20,7 @@ const DetailAtom = ({ product }: DetailAtomProps) => {
             <View style={DetailAtomStyle.containerImage}>
                 <Image
                     source={{
-                        uri: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                        uri: product.image,
                     }}
                     style={DetailAtomStyle.imageStyle}
                 />
@@ -52,7 +44,7 @@ const DetailAtom = ({ product }: DetailAtomProps) => {
                         DetailAtomStyle.genericCardTextSpacing,
                     ]}
                 >
-                    Rating: {product.rate}/5 ({product.count} reviews)
+                    Rating: {product.rate} ({product.count} )
                 </Text>
             </View>
         </View>

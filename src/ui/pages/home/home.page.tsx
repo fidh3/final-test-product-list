@@ -4,17 +4,9 @@ import { FlatList, ListRenderItem, View } from "react-native";
 import { MainParamList, Page } from "../../navigation/types";
 import Card from "../../components/card/card.atom";
 import { homeStyle } from "./home.style";
+import { ProductCard } from "../hook/useCards";
 
 
-interface ProductCard {
-
-    id: number;
-    title: string;
-    price: number;
-    category: string;
-    image: string
-    rate: number;
-}
 
  interface Props {
   navigation:
