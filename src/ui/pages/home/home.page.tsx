@@ -1,6 +1,7 @@
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { memo, useCallback, useState } from "react";
 import { FlatList, ListRenderItem, View } from "react-native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useFocusEffect } from '@react-navigation/native'; // Importa useFocusEffect
 import { MainParamList, Page } from "../../navigation/types";
 import Card from "../../components/card/card.atom";
 import { homeStyle } from "./home.style";
@@ -19,25 +20,32 @@ enum ButtonType {
 }
 
 const HomePage = ({ navigation }: Props) => {
-  const { cards, setCards, initialCards, favoriteIds, addFavorite } = useCards();
+  const { cards, setCards, initialCards, favoriteIds, addFavorite, loadFavorites } = useCards();
   const [buttonType, setButtonType] = useState<ButtonType>(ButtonType.initial);
+
+  // Usa useFocusEffect per aggiornare i preferiti quando la schermata è in focus
+  useFocusEffect(
+    useCallback(() => {
+      loadFavorites(); // Ricarica i preferiti ogni volta che la schermata è in focus
+    }, [loadFavorites])
+  );
 
   // Button useCallback
   const onFilterApply = useCallback(
     (type: ButtonType) => {
       setButtonType(type);
 
-      let sortedCards = [...initialCards]; 
+      let sortedCards = [...initialCards];
 
       if (type === ButtonType.ascendent) {
-        sortedCards.sort((a, b) => a.rating.count - b.rating.count); 
+        sortedCards.sort((a, b) => a.rating.count - b.rating.count);
       } else if (type === ButtonType.descendent) {
-        sortedCards.sort((a, b) => b.rating.count - a.rating.count); 
+        sortedCards.sort((a, b) => b.rating.count - a.rating.count);
       }
 
-      setCards(sortedCards); 
+      setCards(sortedCards);
     },
-    [initialCards, setCards] 
+    [initialCards, setCards]
   );
 
   // Rendering buttons
