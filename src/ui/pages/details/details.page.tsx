@@ -20,7 +20,7 @@ const DetailsPage = ({ navigation, route }: Props) => {
   const { top, bottom } = useSafeAreaInsets();
   const { id } = route.params;
   const [product, setProduct] = useState<ProductCard | null>(null);
-  const [selected, setSelected] = useState(false);
+  const [selected] = useState(false);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)

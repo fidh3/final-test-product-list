@@ -47,6 +47,7 @@ const HomePage = ({ navigation }: Props) => {
     },
     [initialCards, setCards]
   );
+  //fine
 
   // Rendering buttons
   const renderFilterButtons = useCallback(() => {
@@ -78,7 +79,7 @@ const HomePage = ({ navigation }: Props) => {
       </View>
     );
   }, [buttonType, onFilterApply]);
-
+//fine
   const handleAddFavorite = useCallback((card: ProductCard) => {
     addFavorite(card);
   }, [addFavorite]);
