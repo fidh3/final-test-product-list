@@ -12,5 +12,10 @@ export const homeStyle = StyleSheet.create({
   itemSeparator: {
     height: 20,
   },
+  filtersContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
   
 });
