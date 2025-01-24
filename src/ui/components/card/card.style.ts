@@ -29,7 +29,7 @@ const cardStyle = StyleSheet.create({
     textAlign: 'left',
     fontWeight: 'bold',
     fontSize: 18,
-    color: '#151515',
+    color: '#FFFFFF',
     marginLeft: 10,
   },
   containerImage: {
