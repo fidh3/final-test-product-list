@@ -21,13 +21,13 @@ export const useCards = () => {
   const [favoriteCards, setFavoriteCards] = useState<ProductCard[]>([]);
   const [initialCards, setInitialCards] = useState<ProductCard[]>([]);
 
-
+  // Carica le carte dall'API
   const refreshCards = useCallback(async () => {
     try {
       const response = await fetch('https://fakestoreapi.com/products');
       const data = await response.json();
-      setInitialCards(data); 
-      setCards(data); 
+      setInitialCards(data); // Imposta le carte iniziali
+      setCards(data); // Imposta le carte correnti
     } catch (error) {
       console.error('Error fetching cards:', error);
     }
@@ -40,7 +40,7 @@ export const useCards = () => {
       const parsedFavorites = storedFavorites ? JSON.parse(storedFavorites) : [];
       setFavoriteIds(parsedFavorites);
 
-      
+      // Filtra le carte preferite in base agli ID salvati
       const favoriteCards = initialCards.filter(card => parsedFavorites.includes(card.id));
       setFavoriteCards(favoriteCards);
     } catch (error) {
@@ -61,10 +61,10 @@ export const useCards = () => {
       const favoriteCards = initialCards.filter(card => updatedFavorites.includes(card.id));
       setFavoriteCards(favoriteCards);
 
-    
+      // Salva i preferiti nello storage
       await storage.setItem(PREFERRED_CARDS, JSON.stringify(updatedFavorites));
     },
-    [favoriteIds, initialCards] 
+    [favoriteIds, initialCards] // Dipende da favoriteIds e initialCards
   );
 
   // Carica le carte e i preferiti quando il componente viene montato
@@ -72,7 +72,7 @@ export const useCards = () => {
     refreshCards();
   }, [refreshCards]);
 
-
+  // Carica i preferiti dopo che le carte sono state caricate
   useEffect(() => {
     if (initialCards.length > 0) {
       loadFavorites();

@@ -14,7 +14,7 @@ export const homeStyle = StyleSheet.create({
   },
   filtersContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     marginBottom: 16,
   },
   
