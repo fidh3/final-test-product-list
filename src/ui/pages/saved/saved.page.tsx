@@ -1,12 +1,11 @@
 import React, { useCallback } from "react";
 import { TouchableOpacity, View, FlatList } from "react-native";
 import { homeStyle } from "../home/home.style";
-import { Ionicons } from '@expo/vector-icons';
 import { RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { MainParamList, Page } from "../../navigation/types";
 import Card from "../../components/card/card.atom";
-import { useCards } from "../hook/useCards";
+import { ProductCard, useCards } from "../hook/useCards";
 
 interface Props {
   navigation: NativeStackNavigationProp<MainParamList>;
@@ -16,8 +15,8 @@ interface Props {
 const SavedPage = ({ navigation, route }: Props) => {
   const { favoriteCards, favoriteIds, addFavorite } = useCards();
 
-  // Funzione per gestire l'aggiunta/rimozione dei preferiti
-  const handleAddFavorite = useCallback((card) => {
+  
+  const handleAddFavorite = useCallback((card: ProductCard) => {
     addFavorite(card); // Usa addFavorite per aggiungere/rimuovere la carta
   }, [addFavorite]);
 

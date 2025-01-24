@@ -21,7 +21,7 @@ export const useCards = () => {
   const [favoriteCards, setFavoriteCards] = useState<ProductCard[]>([]);
   const [initialCards, setInitialCards] = useState<ProductCard[]>([]);
 
-  // Carica le carte dall'API
+
   const refreshCards = useCallback(async () => {
     try {
       const response = await fetch('https://fakestoreapi.com/products');
@@ -46,14 +46,14 @@ export const useCards = () => {
     } catch (error) {
       console.error('Error loading favorites:', error);
     }
-  }, [initialCards]); // Dipende solo da initialCards
+  }, [initialCards]); 
 
   // Aggiungi o rimuovi una carta dai preferiti
   const addFavorite = useCallback(
     async (item: ProductCard) => {
       const updatedFavorites = favoriteIds.includes(item.id)
-        ? favoriteIds.filter((id) => id !== item.id) // Rimuovi la carta dai preferiti
-        : [...favoriteIds, item.id]; // Aggiungi la carta ai preferiti
+        ? favoriteIds.filter((id) => id !== item.id) 
+        : [...favoriteIds, item.id]; 
 
       setFavoriteIds(updatedFavorites);
 
